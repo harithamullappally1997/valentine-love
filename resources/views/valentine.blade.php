@@ -271,11 +271,188 @@
     color: white;
     font-size: 20px;
 }
+/* About Him Section */
+/* Container adjustments for 5 photos */
+.about-him {
+    background: #ffffff;
+    padding: 100px 5%;
+    display: flex;
+    flex-direction: column; /* Stack vertically on small screens */
+    align-items: center;
+    gap: 40px;
+    overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+    .about-him {
+        flex-direction: row;
+        padding: 100px 10%;
+    }
+    .him-text { flex: 0.8; }
+    .him-photos { flex: 1.2; }
+}
+
+.him-photos {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.polaroid {
+    position: absolute;
+    background: white;
+    padding: 10px 10px 20px 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 170px; /* Made slightly smaller to fit 5 nicely */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.caption {
+    font-family: 'Cursive', sans-serif;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    color: #475569;
+}
+
+/* Unique Positions and Rotations for 5 photos */
+.photo-1 { --rotation: -12deg; left: 0%;   top: 10%; animation: float-slow 6s infinite; }
+.photo-2 { --rotation: 6deg;   left: 20%;  top: 5%;  animation: float-slow 6s infinite 1s; }
+.photo-3 { --rotation: -4deg;  left: 40%;  top: 15%; animation: float-slow 6s infinite 2s; }
+.photo-4 { --rotation: 10deg;  left: 60%;  top: 8%;  animation: float-slow 6s infinite 3.5s; }
+.photo-5 { --rotation: -7deg;  left: 75%;  top: 20%; animation: float-slow 6s infinite 4.5s; }
+
+.polaroid:hover {
+    transform: scale(1.2) rotate(0deg) !important;
+    z-index: 100 !important;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    animation: none;
+}
+
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0) rotate(var(--rotation)); }
+    50% { transform: translateY(-15px) rotate(var(--rotation)); }
+}
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+    .him-photos { height: 450px; }
+    .polaroid { width: 140px; }
+    /* Spread them a bit more vertically on mobile so they don't overlap too much */
+    .photo-1 { left: 5%; top: 5%; }
+    .photo-2 { left: 50%; top: 10%; }
+    .photo-3 { left: 10%; top: 40%; }
+    .photo-4 { left: 55%; top: 45%; }
+    .photo-5 { left: 30%; top: 70%; }
+}
+.him-section {
+    padding: 100px 5%;
+    background: #fff;
+    text-align: center;
+}
+
+.him-intro {
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.him-intro h2 {
+    font-size: 2.8rem;
+    color: #e11d48;
+    margin-bottom: 15px;
+}
+
+.him-gallery {
+    display: flex;
+    width: 100%;
+    height: 450px;
+    gap: 15px;
+}
+
+.him-card {
+    position: relative;
+    flex: 1; /* All start equal */
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.him-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+/* The Secret Sauce: Hover expansion */
+.him-card:hover {
+    flex: 4; /* Grows while others stay small */
+}
+
+.him-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Text Overlay */
+.him-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s;
+    text-align: left;
+}
+
+.him-card:hover .him-overlay {
+    opacity: 1;
+}
+
+.him-overlay span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-left: 3px solid #e11d48;
+    padding-left: 10px;
+}
+
+/* Mobile Responsive: Stack them vertically or scroll */
+@media (max-width: 768px) {
+    .him-gallery {
+        flex-direction: column;
+        height: auto;
+    }
+    .him-card {
+        flex: none;
+        height: 250px;
+        width: 100%;
+    }
+    .him-card:hover {
+        flex: none; /* Disable expansion on mobile for better scrolling */
+    }
+    .him-overlay {
+        opacity: 1; /* Always show text on mobile */
+        padding: 15px;
+    }
+}
     </style>
 </head>
 <body>
 <audio id="bgMusic" loop>
-    <source src="{{ asset('music/music.mp3') }}" type="audio/mpeg">
+    <source src="music/music.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
@@ -292,19 +469,18 @@
     </nav> -->
 
    <section id="home" class="banner">
-    <img src="{{ asset('images/baaanner.png') }}" alt="Office Banner" class="banner-img">
+    <img src="images/baaanner.png" alt="Office Banner" class="banner-img">
     
     <div class="banner-overlay"></div>
     
     <div class="banner-content">
         <h1>To My Forever Valentine❤️</h1>
-        <p>Just a little space on the internet dedicated to my favorite person in the world. Happy Valentine's Day, Muthaa!</p>
+        <p>Just a little space on the internet dedicated to my favorite person in the world. Happy Valentine's Day!</p>
     </div>
 </section>
-
     <section id="about" class="about">
         <div class="about-image">
-            <img src="{{ asset('images/save_date_01.jpg') }}" alt="Team working">
+            <img src="images/save_date_01.jpg" alt="Team working">
         </div>
         <div class="about-content">
             <h2>Dear Love❤️,</h2>
@@ -323,7 +499,7 @@
     <section id="special-note" class="note-section">
     <div class="note-container">
         <div class="floating-img left-img">
-            <img src="{{ asset('images/baby_1.dng') }}" alt="My Love">
+            <img src="images/baby_1.dng" alt="My Love">
         </div>
 
         <div class="center-note">
@@ -338,28 +514,46 @@
         </div>
 
         <div class="floating-img right-img">
-            <img src="{{ asset('images/baby_2.dng') }}" alt="Soulmate">
+            <img src="images/baby_2.dng" alt="Soulmate">
         </div>
     </div>
 </section>
     <section id="media" class="media">
         <h2>Moments</h2>
         <div class="grid">
-            <div class="media-card">
-                <img src="{{ asset('images/save_date_02.jpg') }}" alt="Project 1">
-            </div>
-            <div class="media-card">
-                <img src="{{ asset('images/save_date_03.jpg') }}" alt="Project 2">
-            </div>
-            <div class="media-card">
-                <img src="{{ asset('images/save_date_04.jpg') }}" alt="Project 3">
-            </div>
+            <!-- <div class="media-card">
+                <img src="images/save_date_02.jpg" alt="Project 1">
+            </div> -->
              <div class="media-card">
-                <img src="{{ asset('images/save_date_05.jpg') }}" alt="Project 3">
+                <img src="images/moment_01.jpg" alt="Project 1">
+            </div>
+            <!-- <div class="media-card">
+                <img src="images/save_date_03.jpg" alt="Project 2">
+            </div> -->
+             <div class="media-card">
+                <img src="images/phuket_03.dng" alt="Project 2">
             </div>
             <div class="media-card">
-                <img src="{{ asset('images/save_the_date_06.jpg') }}" alt="Project 3">
+                <img src="images/moment_02.dng" alt="Project 2">
             </div>
+            <!-- <div class="media-card">
+                <img src="images/moment_03.jpeg" alt="Project 2">
+            </div> -->
+            <div class="media-card">
+                <img src="images/moment_04.jpeg" alt="Project 2">
+            </div>
+            <div class="media-card">
+                <img src="images/moment_05.jpeg" alt="Project 2">
+            </div>
+            <div class="media-card">
+                <img src="images/save_date_04.jpg" alt="Project 3">
+            </div>
+             <!-- <div class="media-card">
+                <img src="images/save_date_05.jpg" alt="Project 3">
+            </div>
+            <div class="media-card">
+                <img src="images/save_the_date_06.jpg" alt="Project 3">
+            </div> -->
         </div>
     </section>
 
@@ -374,17 +568,59 @@
     </div>
 
     <div class="gallery-container">
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedd2.jpg') }}" alt="The Vows"></div>
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_15.jpg') }}" alt="Our First Dance"></div>
-        <div class="gallery-item large"><img src="{{ asset('images/wedding/wedding_us_03.jpg') }}" alt="The Kiss"></div>
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_04.jpg') }}" alt="Cake Cutting"></div>
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_05.jpg') }}" alt="With Family"></div>
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_06.jpg') }}" alt="Golden Hour"></div>
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_10.jpg') }}" alt="Golden Hour"></div>
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_11.jpg') }}" alt="Golden Hour"></div>
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_12.jpg') }}" alt="Golden Hour"></div>
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_13.jpg') }}" alt="Golden Hour"></div>
-        <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_14.jpg') }}" alt="Golden Hour"></div>
+        <div class="gallery-item"><img src="images/wedding/wedd2.jpg" alt="The Vows"></div>
+        <div class="gallery-item"><img src="images/wedding/wedding_us_15.jpg" alt="Our First Dance"></div>
+        <div class="gallery-item large"><img src="images/wedding/wedding_us_03.jpg" alt="The Kiss"></div>
+        <div class="gallery-item"><img src="images/wedding/wedding_us_04.jpg" alt="Cake Cutting"></div>
+        <div class="gallery-item"><img src="images/wedding/wedding_us_05.jpg" alt="With Family"></div>
+        <div class="gallery-item"><img src="images/wedding/wedding_us_06.jpg" alt="Golden Hour"></div>
+        <div class="gallery-item"><img src="images/wedding/wedding_us_10.jpg" alt="Golden Hour"></div>
+        <div class="gallery-item"><img src="images/wedding/wedding_us_11.jpg" alt="Golden Hour"></div>
+        <div class="gallery-item"><img src="images/wedding/wedding_us_12.jpg" alt="Golden Hour"></div>
+        <div class="gallery-item"><img src="images/wedding/wedding_us_13.jpg" alt="Golden Hour"></div>
+        <div class="gallery-item"><img src="images/wedding/wedding_us_14.jpg" alt="Golden Hour"></div>
+    </div>
+</section>
+<section id="about-him" class="him-section">
+    <div class="him-intro">
+        <h2>About Him ❤️</h2>
+        <p> He’s the man who makes every day feel like a celebration. Whether he’s being the most supportive partner or the biggest goofball in the room, he’s the heart of our home.</p>
+    </div>
+
+    <div class="him-gallery">
+        <div class="him-card">
+            <img src="images/wedding/groom_01.jpg" alt="The Best Smile">
+            <div class="him-overlay">
+                <span>The Best Smile</span>
+            </div>
+        </div>
+        
+        <div class="him-card">
+            <img src="images/wedding/groom_02.jpg" alt="My Whole World">
+            <div class="him-overlay">
+                <span>My Whole World</span>
+            </div>
+        </div>
+
+        <div class="him-card">
+            <img src="images/him/him_06.jpg" alt="Forever & Always">
+            <div class="him-overlay">
+                <span>Forever & Always</span>
+            </div>
+        </div>
+
+        <div class="him-card active"> <img src="images/him/him_09.jpg" alt="Laughter">
+            <div class="him-overlay">
+                <span>Always making me laugh!</span>
+            </div>
+        </div>
+
+        <div class="him-card">
+            <img src="images/him/him_10.jpg" alt="The Best Hugs">
+            <div class="him-overlay">
+                <span>The Best Hugs</span>
+            </div>
+        </div>
     </div>
 </section>
     <footer>
