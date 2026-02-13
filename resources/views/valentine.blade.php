@@ -302,6 +302,7 @@
         </div>
     </section>
 
+    
     <section id="media" class="media">
         <h2>Moments</h2>
         <div class="grid">
