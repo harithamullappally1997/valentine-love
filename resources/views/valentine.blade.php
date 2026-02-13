@@ -284,7 +284,7 @@
     <section id="special-note" class="note-section">
         <div class="note-container">
             <div class="floating-img left-img">
-                <img src="{{ asset('images/baby_1.dng') }}" alt="My Love">
+                <img src="{{ asset('images/baby_1.jpg') }}" alt="My Love">
             </div>
             <div class="center-note">
                 <h3>To My Favorite Human</h3>
@@ -297,7 +297,7 @@
                 <span class="signature">Forever Yours, Mmmmmaaa...</span>
             </div>
             <div class="floating-img right-img">
-                <img src="{{ asset('images/baby_2.dng') }}" alt="Soulmate">
+                <img src="{{ asset('images/baby_2.jpg') }}" alt="Soulmate">
             </div>
         </div>
     </section>
@@ -306,8 +306,8 @@
         <h2>Moments</h2>
         <div class="grid">
             <div class="media-card"><img src="{{ asset('images/moment_01.jpg') }}" alt="Moment 1"></div>
-            <div class="media-card"><img src="{{ asset('images/phuket_03.dng') }}" alt="Moment 2"></div>
-            <div class="media-card"><img src="{{ asset('images/moment_02.dng') }}" alt="Moment 3"></div>
+            <div class="media-card"><img src="{{ asset('images/phuket_03.jpg') }}" alt="Moment 2"></div>
+            <div class="media-card"><img src="{{ asset('images/moment_02.jpg') }}" alt="Moment 3"></div>
             <div class="media-card"><img src="{{ asset('images/moment_04.jpeg') }}" alt="Moment 4"></div>
             <div class="media-card"><img src="{{ asset('images/moment_05.jpeg') }}" alt="Moment 5"></div>
             <div class="media-card"><img src="{{ asset('images/save_date_04.jpg') }}" alt="Moment 6"></div>
