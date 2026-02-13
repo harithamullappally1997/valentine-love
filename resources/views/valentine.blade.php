@@ -271,7 +271,7 @@
 
     <section id="about" class="about">
         <div class="about-image">
-            <img src="{{ asset('images/save_date_01.jpg') }}" alt="Save the date">
+            <img src="{{ asset('images/save_date_01.webp') }}" alt="Save the date">
         </div>
         <div class="about-content">
             <h2>Dear Love❤️,</h2>
