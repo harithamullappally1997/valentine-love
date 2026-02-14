@@ -1,0 +1,524 @@
+        /* Base Styles */
+        :root {
+            --primary: #e11d48;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* --- Banner Section --- */
+        /* --- Updated Banner Section --- */
+        .banner {
+            min-height: 100vh;
+            /* Changed from height to min-height */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 100px 20px;
+            /* Added padding for mobile breathing room */
+        }
+
+        .banner-img,
+        .banner-img img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 1;
+        }
+
+        /* Mobile specific tweaks */
+        @media (max-width: 768px) {
+            .banner {
+                min-height: 60vh;
+                /* Shorter height on mobile looks better */
+            }
+
+            .banner h1 {
+                font-size: 2.2rem;
+                /* Specific size for mobile */
+            }
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            z-index: 2;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 3;
+            padding: 0 20px;
+        }
+
+        .banner h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        /* --- About Section --- */
+        section {
+            padding: 80px 5%;
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            background: white;
+        }
+
+        @media (min-width: 768px) {
+            .about {
+                flex-direction: row;
+                padding: 100px 10%;
+                gap: 4rem;
+            }
+
+            .about-content,
+            .about-image {
+                flex: 1;
+            }
+
+            .about-content {
+                text-align: left;
+            }
+
+            .about h2 {
+                text-align: left;
+            }
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Special Note Section Fix --- */
+        .note-section {
+            background: #fff5f7;
+            padding: 80px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .note-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            width: 100%;
+            gap: 40px;
+        }
+
+        .center-note {
+            flex: 0 1 500px;
+            text-align: center;
+            padding: 50px 40px;
+            background: white;
+            border-radius: 50% 50% 20px 20px;
+            box-shadow: 0 15px 35px rgba(225, 29, 72, 0.1);
+            z-index: 2;
+            min-width: unset;
+            width: 100%;
+            animation: noteFadeIn 1.5s ease-out;
+        }
+
+        .floating-img {
+            flex: 0 1 300px;
+        }
+
+        .floating-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 8px solid white;
+        }
+
+        .left-img {
+            animation: float-left 6s ease-in-out infinite;
+        }
+
+        .right-img {
+            animation: float-right 6s ease-in-out infinite;
+        }
+
+        @keyframes float-left {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(-2deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(1deg);
+            }
+        }
+
+        @keyframes float-right {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(2deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(-1deg);
+            }
+        }
+
+        @keyframes noteFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .note-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            /* Image 1 (Top) */
+            .left-img {
+                order: 1;
+            }
+
+            /* Content (Middle) */
+            .center-note {
+                order: 2;
+                border-radius: 20px;
+                width: 100%;
+                min-width: unset;
+                /* Prevents horizontal scroll on small phones */
+            }
+
+            /* Image 2 (Bottom) */
+            .right-img {
+                order: 3;
+            }
+
+            .floating-img {
+                max-width: 80%;
+            }
+        }
+
+        /* --- Header Styles --- */
+        .section-header,
+        .him-intro,
+        .media h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .section-header h2,
+        .him-intro h2,
+        .media h2,
+        .about h2 {
+            font-family: 'Georgia', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: #9f1239;
+            margin-bottom: 10px;
+        }
+
+        .heart-divider {
+            color: #e11d48;
+            font-size: 1.5rem;
+            margin: 10px 0;
+            display: block;
+        }
+
+        /* --- Media Grid --- */
+        .media {
+            background: #f1f5f9;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .media-card {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .media-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* --- Wedding Gallery --- */
+        .wedding-gallery {
+            background: #fff;
+            text-align: center;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-item.large {
+                grid-row: span 2;
+                grid-column: span 1;
+            }
+        }
+
+        /* --- About Him Gallery --- */
+        .him-section {
+            padding: 80px 5%;
+            background: #fff;
+            text-align: center;
+        }
+
+        .him-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .him-card {
+            position: relative;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .him-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            .him-gallery {
+                flex-direction: row;
+                height: 450px;
+            }
+
+            .him-card {
+                flex: 1;
+            }
+
+            .him-card:hover {
+                flex: 3;
+            }
+        }
+
+        .him-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            text-align: left;
+        }
+
+        /* --- Controls --- */
+        #music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 2000;
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background: var(--dark);
+            color: white;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .valentine-ask {
+            padding: 100px 5%;
+            text-align: center;
+            background: #fff5f7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ask-container h2 {
+            font-family: 'Georgia', serif;
+            color: var(--gray);
+        }
+
+        .ask-container h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            height: 100px;
+            /* Space for the button to move */
+        }
+
+        .btn-valentine {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #yesBtn {
+            background: #22c55e;
+            color: white;
+        }
+
+        #noBtn {
+            background: var(--primary);
+            color: white;
+            position: relative;
+        }
+
+        /* Heart Animation */
+        .floating-heart {
+            position: absolute;
+            color: #e11d48;
+            font-size: 2rem;
+            animation: fly 3s linear forwards;
+            z-index: 1000;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* --- Responsive Valentine Question --- */
+  /* Valentine Question Section */
+.valentine-ask {
+    padding: 100px 5%;
+    text-align: center;
+    background: #fff5f7;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-valentine {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#yesBtn { background: #22c55e; color: white; }
+#noBtn { background: #e11d48; color: white; }
+
+/* The Heart Rain Animation */
+.floating-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    color: #e11d48;
+    animation: flyUp 3s linear forwards;
+}
+
+@keyframes flyUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
+    
