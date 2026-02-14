@@ -306,12 +306,12 @@
     <section id="media" class="media">
         <h2>Moments</h2>
         <div class="grid">
-            <div class="media-card"><img src="{{ asset('images/moment_01.jpg') }}" alt="Moment 1"></div>
+            <div class="media-card"><img src="{{ asset('images/moment_01.webp') }}" alt="Moment 1"></div>
             <div class="media-card"><img src="{{ asset('images/phuket_03.jpg') }}" alt="Moment 2"></div>
             <div class="media-card"><img src="{{ asset('images/moment_02.jpg') }}" alt="Moment 3"></div>
             <div class="media-card"><img src="{{ asset('images/moment_04.jpeg') }}" alt="Moment 4"></div>
             <div class="media-card"><img src="{{ asset('images/moment_05.jpeg') }}" alt="Moment 5"></div>
-            <div class="media-card"><img src="{{ asset('images/save_date_04.jpg') }}" alt="Moment 6"></div>
+            <div class="media-card"><img src="{{ asset('images/save_date_04.webp') }}" alt="Moment 6"></div>
             <div class="media-card"><img src="{{ asset('images/moment_06.jpeg') }}" alt="Moment 7"></div>
             <div class="media-card"><img src="{{ asset('images/moment_07.jpeg') }}" alt="Moment 8"></div>
             <div class="media-card"><img src="{{ asset('images/moment_08.jpeg') }}" alt="Moment 9"></div>
@@ -329,20 +329,20 @@
             <p>A glimpse into the day we said "I do."</p>
         </div>
         <div class="gallery-container">
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedd2.jpg') }}" alt="Wedding 1"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_15.jpg') }}" alt="Wedding 2"></div>
-            <div class="gallery-item large"><img src="{{ asset('images/wedding/wedding_us_03.jpg') }}" alt="Wedding 3"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_04.jpg') }}" alt="Wedding 4"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_05.jpg') }}" alt="Wedding 5"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_06.jpg') }}" alt="Wedding 6"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_10.jpg') }}" alt="Wedding 7"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_11.jpg') }}" alt="Wedding 8"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_12.jpg') }}" alt="Wedding 9"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_13.jpg') }}" alt="Wedding 10"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_14.jpg') }}" alt="Wedding 11"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedd_05.jpg') }}" alt="Wedding 12"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedd_07.jpg') }}" alt="Wedding 13"></div>
-            <div class="gallery-item"><img src="{{ asset('images/wedding/wedd_08.jpg') }}" alt="Wedding 14"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedd2.webp') }}" alt="Wedding 1"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_15.webp') }}" alt="Wedding 2"></div>
+            <div class="gallery-item large"><img src="{{ asset('images/wedding/wedding_us_03.webp') }}" alt="Wedding 3"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_04.webp') }}" alt="Wedding 4"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_05.webp') }}" alt="Wedding 5"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_06.webp') }}" alt="Wedding 6"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_10.webp') }}" alt="Wedding 7"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_11.webp') }}" alt="Wedding 8"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_12.webp') }}" alt="Wedding 9"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_13.webp') }}" alt="Wedding 10"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedding_us_14.webp') }}" alt="Wedding 11"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedd_05.webp') }}" alt="Wedding 12"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedd_07.webp') }}" alt="Wedding 13"></div>
+            <div class="gallery-item"><img src="{{ asset('images/wedding/wedd_08.webp') }}" alt="Wedding 14"></div>
         </div>
     </section>
 
@@ -353,11 +353,11 @@
         </div>
         <div class="him-gallery">
             <div class="him-card">
-                <img src="{{ asset('images/wedding/groom_01.jpg') }}" alt="Smile">
+                <img src="{{ asset('images/wedding/groom_01.webp') }}" alt="Smile">
                 <div class="him-overlay"><span>The Best Smile</span></div>
             </div>
             <div class="him-card">
-                <img src="{{ asset('images/wedding/groom_02.jpg') }}" alt="World">
+                <img src="{{ asset('images/wedding/groom_02.webp') }}" alt="World">
                 <div class="him-overlay"><span>My Whole World</span></div>
             </div>
             <div class="him-card">
