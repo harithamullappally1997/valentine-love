@@ -31,26 +31,39 @@
         }
 
         /* --- Banner Section --- */
-        .banner {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
+        /* --- Updated Banner Section --- */
+.banner {
+    min-height: 100vh; /* Changed from height to min-height */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 100px 20px; /* Added padding for mobile breathing room */
+}
 
-        .banner-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
+.banner-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Ensures the middle of the photo stays visible */
+    z-index: 1;
+}
+
+/* Mobile specific tweaks */
+@media (max-width: 768px) {
+    .banner {
+        min-height: 60vh; /* Shorter height on mobile looks better */
+    }
+    .banner h1 {
+        font-size: 2.2rem; /* Specific size for mobile */
+    }
+}
 
         .banner-overlay {
             position: absolute;
@@ -140,7 +153,7 @@
             border-radius: 50% 50% 20px 20px;
             box-shadow: 0 15px 35px rgba(225, 29, 72, 0.1);
             z-index: 2;
-            min-width: 320px;
+            min-width: unset; width: 100%;
             animation: noteFadeIn 1.5s ease-out;
         }
 
@@ -348,7 +361,7 @@
 
     <section id="about-him" class="him-section">
         <div class="him-intro">
-            <h2>About Him ❤️</h2>
+            <h2>About You ❤️</h2>
             <p>He’s the man who makes every day feel like a celebration.</p>
         </div>
         <div class="him-gallery">
